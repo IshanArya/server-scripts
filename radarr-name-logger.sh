@@ -6,7 +6,6 @@ movie_parent_folder="$(basename "$movie_folder_path")"
 TO=$"media:\"Media/Movies/$movie_parent_folder\""
 LOGFILE="$HOME/server-scripts/$script_name.log"
 
-
-echo "Uploading $movie_parent_folder to drive." >> $LOGFILE
-rclone copy "$movie_folder_path" $TO --log-file=$LOGFILE
-echo "Done uploading $movie_parent_folder to drive." >> $LOGFILE
+echo "Movie Folder Path: $movie_folder_path" >> $LOGFILE
+echo "Movie Parent Folder: $movie_parent_folder" >> $LOGFILE
+echo "To: $TO" >> $LOGFILE
