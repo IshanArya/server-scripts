@@ -9,4 +9,4 @@ LOGFILE="$HOME/server-scripts/$script_name.log"
 echo "Movie Folder Path: $movie_folder_path" >> $LOGFILE
 echo "Movie Parent Folder: $movie_parent_folder" >> $LOGFILE
 echo "To: $TO" >> $LOGFILE
-echo "Script: rclone copy "$movie_folder_path" $TO --log-file=$LOGFILE" >> $LOGFILE
+echo "Script: rclone copy \"$movie_folder_path\" $TO --log-file=$LOGFILE" >> $LOGFILE
