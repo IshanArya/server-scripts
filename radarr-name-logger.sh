@@ -11,3 +11,4 @@ echo "Movie Folder Path: $movie_folder_path" >> $LOGFILE
 echo "Movie Parent Folder: $movie_parent_folder" >> $LOGFILE
 echo "To: $TO" >> $LOGFILE
 echo "Script: $rclone_command" >> $LOGFILE
+echo "Done at $(date "+%d.%m.%Y %T")" >> $LOGFILE
