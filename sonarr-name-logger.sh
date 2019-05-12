@@ -11,6 +11,4 @@ episode_source_folder_path="$sonarr_episodefile_sourcefolder"
 
 echo "Series Path: $series_path" >> $LOGFILE
 echo "Episode Path: $episode_path" >> $LOGFILE
-echo "Episode Source Path: $episode_source_path" >> $LOGFILE
-echo "Episode Source Folder Path: $episode_source_folder_path" >> $LOGFILE
 echo "Done at $(date "+%d.%m.%Y %T")" >> $LOGFILE
