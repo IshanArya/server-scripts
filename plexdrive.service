@@ -1,7 +1,7 @@
 [Unit]
 Description=plexdrive
 After=network-online.target
-AssertPathIsDirectory=/mnt/media
+AssertPathIsDirectory=/mnt/plexdrive
 StartLimitIntervalSec=0
 
 [Service]
@@ -9,8 +9,8 @@ Type=notify
 Restart=always
 RestartSec=5
 User=xxxxx
-ExecStart=/usr/bin/plexdrive mount --drive-id=xxxxxxx -o allow_other -v 2 --chunk-load-threads=16 --chunk-load-ahead=16 --max-chunks=256 --refresh-interval=1m /mnt/media
-ExecStopPost=/usr/bin/fusermount -quz /mnt/media
+ExecStart=/usr/bin/plexdrive mount --drive-id=xxxxxxx -o allow_other -v 2 --chunk-load-threads=16 --chunk-load-ahead=16 --max-chunks=256 --refresh-interval=1m /mnt/plexdrive
+ExecStopPost=/usr/bin/fusermount -quz /mnt/plexdrive
 
 [Install]
 WantedBy=multi-user.target
