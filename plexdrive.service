@@ -6,8 +6,9 @@ After=network-online.target
 AssertPathIsDirectory=/mnt/plexdrive
 
 [Service]
-Type=notify
+Type=simple
 Restart=always
+TimeoutStartSec=400
 ExecStart=/usr/bin/plexdrive mount --drive-id=xxxxxxx -o allow_other -v 2 --chunk-load-threads=16 --chunk-load-ahead=16 --max-chunks=256 --refresh-interval=1m /mnt/plexdrive
 ExecStopPost=/usr/bin/fusermount -quz /mnt/plexdrive
 
