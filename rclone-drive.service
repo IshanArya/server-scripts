@@ -27,7 +27,7 @@ ExecStart=/usr/bin/rclone mount athena_read:"Media" /mnt/athena \
 --vfs-fast-fingerprint \
 --vfs-cache-max-size 250G \
 --vfs-cache-poll-interval 5m \
---vfs-cache-max-age 5000h \
+--vfs-cache-max-age 5000h
 ExecStopPost=/usr/bin/fusermount -quz /mnt/athena
 
 [Install]
