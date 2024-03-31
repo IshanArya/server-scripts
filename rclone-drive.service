@@ -1,0 +1,34 @@
+# /etc/systemd/system/rclone-drive.service
+
+[Unit]
+Description=rclone-drive
+Wants=network-online.target
+After=network-online.target
+AssertPathIsDirectory=/mnt/athena
+
+[Service]
+Type=notify
+Restart=always
+Environment=RCLONE_CONFIG=/home/artemis/.config/rclone/rclone.conf
+RestartSec=1
+User=xxxxxxx
+TimeoutStartSec=400
+ExecStart=/usr/bin/rclone mount athena_read:"Media" /mnt/athena \
+--allow-other \
+--read-only \
+--buffer-size 1G \
+--dir-cache-time 1h \
+--log-file /home/artemis/.config/rclone/logs/rclone.log \
+--log-level NOTICE \
+--poll-interval 10s \
+--umask 002 \
+--cache-dir=/tmp/cache \
+--vfs-cache-mode full \
+--vfs-fast-fingerprint \
+--vfs-cache-max-size 250G \
+--vfs-cache-poll-interval 5m \
+--vfs-cache-max-age 5000h \
+ExecStopPost=/usr/bin/fusermount -quz /mnt/athena
+
+[Install]
+WantedBy=multi-user.target
