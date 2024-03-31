@@ -11,7 +11,7 @@ Type=notify
 Restart=always
 Environment=RCLONE_CONFIG=/home/artemis/.config/rclone/rclone.conf
 RestartSec=1
-User=xxxxxxx
+User=artemis
 TimeoutStartSec=400
 ExecStart=/usr/bin/rclone mount athena_read:"Media" /mnt/athena \
 --allow-other \
