@@ -10,7 +10,7 @@ AssertPathIsDirectory=/mnt/athena
 Type=notify
 Restart=always
 User=USER
-Environment=RCLONE_CONFIG=$HOME/.config/rclone/rclone.conf
+Environment=RCLONE_CONFIG=/home/USER/.config/rclone/rclone.conf
 RestartSec=1
 TimeoutStartSec=400
 ExecStart=/usr/bin/rclone mount athena_read:"Media" /mnt/athena \
@@ -18,7 +18,7 @@ ExecStart=/usr/bin/rclone mount athena_read:"Media" /mnt/athena \
 --read-only \
 --buffer-size 1G \
 --dir-cache-time 1h \
---log-file $HOME/.config/rclone/logs/rclone.log \
+--log-file /home/USER/.config/rclone/logs/rclone.log \
 --log-level NOTICE \
 --poll-interval 10s \
 --umask 002 \
