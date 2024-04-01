@@ -9,16 +9,16 @@ AssertPathIsDirectory=/mnt/athena
 [Service]
 Type=notify
 Restart=always
-Environment=RCLONE_CONFIG=/home/artemis/.config/rclone/rclone.conf
+Environment=RCLONE_CONFIG=%h/.config/rclone/rclone.conf
 RestartSec=1
-User=artemis
+User=xxxxxxx
 TimeoutStartSec=400
 ExecStart=/usr/bin/rclone mount athena_read:"Media" /mnt/athena \
 --allow-other \
 --read-only \
 --buffer-size 1G \
 --dir-cache-time 1h \
---log-file /home/artemis/.config/rclone/logs/rclone.log \
+--log-file %h/.config/rclone/logs/rclone.log \
 --log-level NOTICE \
 --poll-interval 10s \
 --umask 002 \
