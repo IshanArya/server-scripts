@@ -17,7 +17,7 @@ ExecStart=/usr/bin/rclone mount athena_read:"Media" /mnt/athena \
 --allow-other \
 --read-only \
 --buffer-size 1G \
---dir-cache-time 1h \
+--dir-cache-time 5m \
 --log-file /home/USER/.config/rclone/logs/rclone.log \
 --log-level NOTICE \
 --poll-interval 10s \
