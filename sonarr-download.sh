@@ -10,7 +10,7 @@ series_path="$sonarr_series_path"
 season_folder="$(basename "$season_path")"
 series_folder="$(basename "$series_path")"
 
-TO="media:\"Media/TV Shows/$series_folder/$season_folder\""
+TO="media:\"Media_Write/TV Shows/$series_folder/$season_folder\""
 rclone_command="$HOME/bin/rclone copy \"$episode_path\" $TO --log-file=$LOGFILE"
 shrink_command="dd if=\"$episode_path\" of=\"$episode_path\" bs=1M count=5"
 
