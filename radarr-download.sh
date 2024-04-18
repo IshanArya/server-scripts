@@ -2,11 +2,15 @@
 
 script_name=$(basename -- "$0" | cut -f 1 -d '.')
 LOGFILE="$HOME/server-scripts/$script_name.log"
+
 movie_file_path="$radarr_moviefile_path"
 movie_folder_path="$radarr_movie_path"
 movie_parent_folder="$(basename "$movie_folder_path")"
-TO="media:\"Media_Write/Movies/$movie_parent_folder\""
-rclone_command="$HOME/bin/rclone copy \"$movie_folder_path\" $TO --log-file=$LOGFILE"
+
+server_media_dir="/share/media"
+TO="media:\"$server_media_dir/Movies/$movie_parent_folder\""
+
+rclone_command="$HOME/bin/rclone --sftp-ssh \"ssh sftpathena\" copy \"$movie_folder_path\" $TO --log-file=$LOGFILE"
 shrink_command="dd if=\"$movie_file_path\" of=\"$movie_file_path\" bs=1M count=5"
 
 
